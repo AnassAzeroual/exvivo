@@ -1,0 +1,49 @@
+.cover{
+    background-image: url(../../../assets/img/man.PNG);
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: right;
+    background-repeat: no-repeat;
+    height: 88vh;
+}
+.tag{
+    font-family: fantasy;
+    color: #03A9F4;
+}
+.text_tag{
+    width: 165px;
+}
+.h1{
+    padding-top: 100px;
+    width: 540px;
+    text-transform: uppercase;
+    color: #17a2b8;
+    font-size: 73px;
+    font-weight: 600;
+    letter-spacing: 5px;
+}
+.contents_title{
+    width: 350px;
+    /* padding: 20px; */
+    text-align: justify;
+}
+.box_contents{
+    width: 393px;
+    /* border: 1px solid; */
+    margin-left: 100px;
+    text-align: left;
+}
+.box_footer{
+    background: #05222D;
+    padding: 80px 100px;
+}
+
+@media screen and (max-width: 800px) {
+    .box_contents{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .h1{
+        width: 100%;
+    }
+  }

@@ -1,0 +1,40 @@
+
+.bpmn{
+    background: #35b1e5;
+    /* transform: translateY(24px) */
+}
+.risques{
+    background: #80ceef;
+    /* width: 298px; */
+    /* transform: translateX(20px); */
+}
+.functions{
+    margin: 62px 16px 0px 0px;
+    border: 1px solid silver;
+    text-align: center;
+    padding: 15px;
+    border-radius: 5px;
+}
+.box{
+    height: 291px;
+    overflow: hidden;
+    text-align: justify;
+    transition: transform .2s;
+}
+.box:hover{
+    transform: scale(1.05);
+}
+
+@media screen and (max-width: 991px) and (min-width: 768px) {
+    .fix_padd_mob{
+        margin-bottom: 20px;
+    }
+  }
+@media screen and (max-width: 767px) {
+      .fix_padd_mob{
+            margin-bottom: 20px;
+        }
+      .box{
+          margin-bottom: 20px;
+      }
+    }

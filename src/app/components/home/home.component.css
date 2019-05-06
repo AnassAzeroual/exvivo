@@ -1,0 +1,18 @@
+.btn-info{
+    padding: 9px 24px !important;
+}
+.img1{
+    background-image: url(../../../assets/img/imgPivoter1.png);
+    height: 120px;
+    background-repeat: no-repeat;
+    display: flex;
+    background-position-x: right;
+}
+.img2{
+    background-image: url(../../../assets/img/imgPivoter2.png);
+    height: 120px;
+    background-repeat: no-repeat;
+    display: flex;
+    background-position-x: right;
+    transform: translateY(209px);
+}

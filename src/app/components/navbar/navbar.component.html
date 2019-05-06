@@ -1,0 +1,37 @@
+<div class="container">
+  <nav class="navbar navbar-expand-md navbar-dark bg-nav ">
+      <div class="d-flex w-50 order-0">
+          <a class="navbar-brand mr-1" [routerLink]="['/accueil']">
+            <img class="logo_lab" src="../../../assets/img/logonavbar.PNG" alt="">
+            <img class="logo_mob" src="../../../assets/img/logo_mobile.PNG" alt="">
+          </a>
+      </div>
+      <div class="navbar-collapse collapse justify-content-center order-2" id="collapsingNavbar">
+          <ul class="navbar-nav text-center">
+              <li class="nav-item">
+                  <a class="nav-link" [routerLink]="['/accueil']" >Accueil <span class="sr-only">Accueil</span></a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" [routerLink]="['/modules']">Modules</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/blogs']">Blog</a>
+              </li>
+              <li class="nav-item w_135">
+                    <a class="nav-link" [routerLink]="['/contacts']">Nous contacter</a>
+              </li>
+              <li class="nav-item d-block d-sm-block d-md-none">
+                    <div class="navbar-text small text-truncate mt-1 w-50 text-right order-1 order-md-last">
+                            <p class="float_right link-formation" id="center"><a [routerLink]="['/formations']">Formation</a></p>
+                    </div>
+              </li>
+          </ul>
+      </div>
+      <div class="navbar-text small text-truncate mt-1 w-50 text-right order-1 order-md-last d-none d-sm-none d-md-block" >
+          <p class="float_right link-formation" id="center"><a [routerLink]="['/formations']">Formation</a></p>
+      </div>
+    <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+            <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+</div>

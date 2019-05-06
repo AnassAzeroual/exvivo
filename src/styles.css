@@ -1,0 +1,46 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+    color: aliceblue;
+    font-family: sans-serif;
+    transition: all .8s;
+}
+.text_cap{
+    text-transform: capitalize;
+}
+.header_h2{
+    text-transform: uppercase;
+}
+.blue_color{
+    color: #28A9E0;
+}
+.color_white{
+    color: white;
+}
+.color_black{
+    color: black;
+}
+.center_box{
+    max-width: 532px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.second_title_color{
+    color: #a9a8a8 !important;
+}
+.second_title_color2{
+    color: #495057 !important;
+}
+.logo_lab{
+    display: block;
+}
+.logo_mob{
+    display: none;
+}
+@media screen and (max-width: 991px) {
+    .logo_lab{
+        display: none;
+    }
+    .logo_mob{
+        display: block;
+    }
+  }

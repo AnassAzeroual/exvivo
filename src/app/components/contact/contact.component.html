@@ -1,0 +1,43 @@
+<div class="container animated fadeIn">
+  <div class="box_contact">
+    <div class="h2 pt-5 text-center text-uppercase">
+      <h2>
+        Lorem ipsum dolor sit amet consectetur adipisicing Lorem, ipsum.
+      </h2>
+    </div>
+    <div class="pt-5">
+      <p class="second_title_color text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum distinctio excepturi perferendis dolorum dolorem, obcaecati hic exercitationem quis illum. Nulla, quisquam? Cum ad magni quasi distinctio qui illum, reprehenderit ex.</p>
+    </div>
+    <div class="mt-5">
+        <form>
+            <div class="form-row">
+              <div class="col">
+                <input type="text" id="lname" class="form-control wdth_245 inputs_contact" required #firstName placeholder="Prénom">
+              </div>
+              <div class="col">
+                <input type="text" id="fname" class="form-control wdth_245 inputs_contact" required #lastName placeholder="Nom">
+              </div>
+              <div class="col">
+                <input type="email" id="email" class="form-control wdth_245 inputs_contact" required value="azeroual.anass2015@gmail.com" #email placeholder="Email professionnel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+              </div>
+            </div>
+          </form>
+    </div>
+    <div class="mt-5 text-center">
+      <button class="btn btn-info btn_commencer" (click)="sendData(firstName.value,lastName.value,email.value)"> Commencer un essai gratuit </button>
+    </div>
+  </div>
+  <!-- <img src="../../../assets/img/contact_img.png" alt=""> -->
+</div>
+<div class="mt-5 p-5 container-fluid" style="background-color: rgb(3, 19, 26) !important;">
+  <box></box>
+</div>
+
+ <!--=============================== Modal =============================== -->
+ <div id="modal_change_user_password" class="modal ">
+  <div class="login-modal-content card animated" id="animate_Style_User_Password">
+      <div class="alert alert-success" role="alert">
+          E-mail envoyé avec succès
+        </div>
+  </div>
+</div>

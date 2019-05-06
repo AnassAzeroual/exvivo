@@ -1,0 +1,24 @@
+.cardux{
+    background-color: #082837;
+    width: 326px;
+    height: 265px;
+    overflow: hidden;
+    border-radius: 0px;
+}
+.circle_img{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+}
+.card-text{
+    color: silver;
+    font-size: 15px;
+    padding: 0px 26px;
+    position: absolute;
+    z-index: 1;
+    text-align: justify;
+}
+.footer_img{
+    transform: translateY(62px);
+    z-index: 0;
+}

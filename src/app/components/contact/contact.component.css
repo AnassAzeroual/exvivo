@@ -15,3 +15,6 @@ input:focus, input:active, select:focus{
     outline: none;
     box-shadow: 0 0 0;
 }
+.center_items{
+    text-align: -webkit-center;
+}

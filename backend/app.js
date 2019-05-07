@@ -1,11 +1,18 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const nodemailer = require('nodemailer');
+const mongoose = require("mongoose");
 
 const Contact = require('./moduls/contact');
 
 const app = express();
-
+mongoose.connect("mongodb+srv://anass:5sUHjHkP9Qbh4rS7@exvivo-ubdwp.mongodb.net/exvivo-contact?retryWrites=true")
+.then(() => {
+  console.log("app connected to database");
+})
+.catch(() => {
+  console.log("error in connecting to databse");
+})
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -22,7 +29,13 @@ app.use((req, res, next) => {
   next();
 });
 
-app.post("/api/posts", (req, res, next) => {
+app.post("/api/send", (req, res, next) => {
+  const contact = new Contact({
+    fname : req.body.fname,
+    lname : req.body.lname,
+    email : req.body.email
+  });
+  contact.save();
   const output = `
   <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -408,11 +421,13 @@ table[class=hide], img[class=hide], td[class=hide] {
   
 });
 
-
-
-// app.post("/api/posts", (req, res, next) => {
-//   res.send(res.body);
-//   console.log('res data post from backend');
-// });
+app.get("/api/contacts",(req, res) => {
+Contact.find().then((doc) => {
+  res.status(200).json({
+    message: "Contacts fetched successfully",
+    data:doc
+    });
+  });
+});
 
 module.exports = app;

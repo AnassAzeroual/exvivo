@@ -12,6 +12,9 @@ export class ContactComponent implements OnInit {
   constructor(private send: SendService) { }
 
   ngOnInit() {
+    this.send.getDataSend().subscribe((res) => {
+      console.table(res['data'])
+    })
   }
 
   sendData(fname:string,lname:string,email:string){

@@ -22,9 +22,17 @@ export class ContactComponent implements OnInit {
       this.send.setDataSend(lname,fname,email).subscribe((res) => {
         console.log(res);
         this.Open_modal_change_user_password();
+        this.playAudio();
       })
     }
   }
+  playAudio(){
+    let audio = new Audio();
+    audio.src = "../../assets/notifs/iphone_ding.mp3";
+    audio.load();
+    audio.play();
+  }
+  
   Open_modal_change_user_password() {
     $('#animate_Style_User_Password').removeClass('bounceOutUp');
     $('#animate_Style_User_Password').addClass('bounceInDown');
@@ -32,7 +40,7 @@ export class ContactComponent implements OnInit {
     $('#fname').val('');
     $('#lname').val('');
     $('#email').val('');
-    setTimeout( () => { this.Close_modal_change_user_password() }, 1200);
+    setTimeout( () => { this.Close_modal_change_user_password() }, 3000);
   }
  Close_modal_change_user_password() {
    $('#animate_Style_User_Password').removeClass('bounceInDown');

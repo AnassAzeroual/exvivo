@@ -30,6 +30,7 @@ app.use((req, res, next) => {
 });
 
 app.post("/api/send", (req, res, next) => {
+  
   const contact = new Contact({
     fname : req.body.fname,
     lname : req.body.lname,
@@ -392,13 +393,14 @@ table[class=hide], img[class=hide], td[class=hide] {
       service: 'gmail',
       auth: {
           user: 'azeroual.anass2015@gmail.com',
-          pass: 'f anassbac2015'
+          pass: 'H anassbac2015'
       },
       tls:{
         rejectUnauthorized:false
       }
     });
-  
+    console.log('is here');
+    
     let mailOptions = {
         from: '"EXVIVO" <azeroual.anass2015@gmail.com>',
         to: req.body.email,

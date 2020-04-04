@@ -7,14 +7,16 @@ const Contact = require('./moduls/contact');
 
 const app = express();
 mongoose.connect("mongodb+srv://anass:5sUHjHkP9Qbh4rS7@exvivo-ubdwp.mongodb.net/exvivo-contact?retryWrites=true")
-.then(() => {
-  console.log("app connected to database");
-})
-.catch(() => {
-  console.log("error in connecting to databse");
-})
+  .then(() => {
+    console.log("app connected to database");
+  })
+  .catch(() => {
+    console.log("error in connecting to databse");
+  })
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -30,11 +32,10 @@ app.use((req, res, next) => {
 });
 
 app.post("/api/send", (req, res, next) => {
-  
   const contact = new Contact({
-    fname : req.body.fname,
-    lname : req.body.lname,
-    email : req.body.email
+    fname: req.body.fname,
+    lname: req.body.lname,
+    email: req.body.email
   });
   contact.save();
   const output = `
@@ -386,48 +387,45 @@ table[class=hide], img[class=hide], td[class=hide] {
 </body>
 </html>
   `;
-    let transporter = nodemailer.createTransport({
-      // host: 'azeroual.anass2015@gmail.com',
-      // port: 587,
-      // secure: false, // true for 465, false for other ports
-      service: 'gmail',
-      auth: {
-          user: 'azeroual.anass2015@gmail.com',
-          pass: 'H anassbac2015'
-      },
-      tls:{
-        rejectUnauthorized:false
-      }
-    });
-    console.log('is here');
-    
-    let mailOptions = {
-        from: '"EXVIVO" <azeroual.anass2015@gmail.com>',
-        to: req.body.email,
-        subject: "Demande de commencement d'essai gratuit",
-        html: output // html body
-    };
-  
-    // send mail with defined transport object
-    transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            return console.log(error);
-        }
-        console.log('Message sent: %s', info.messageId);   
-        console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-  
-        // res.render('contact', {msg:'Email has been sent'});
-        // return res.send('All is done thankyou')
-        return res.status(200).json({info}).end()
-    });
-  
+  let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'azeroual.anass2015@gmail.com',
+      pass: 'H anassbac2015'
+    },
+    tls: {
+      rejectUnauthorized: false
+    }
+  });
+  console.log('is here');
+
+  let mailOptions = {
+    from: '"EXVIVO" <azeroual.anass2015@gmail.com>',
+    to: req.body.email,
+    subject: "Demande de commencement d'essai gratuit",
+    html: output // html body
+  };
+
+  // send mail with defined transport object
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      return console.log(error);
+    }
+    console.log('Message sent: %s', info.messageId);
+    console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+
+    return res.status(200).json({
+      info
+    }).end()
+  });
+
 });
 
-app.get("/api/contacts",(req, res) => {
-Contact.find().then((doc) => {
-  res.status(200).json({
-    message: "Contacts fetched successfully",
-    data:doc
+app.get("/api/contacts", (req, res) => {
+  Contact.find().then((doc) => {
+    res.status(200).json({
+      message: "Contacts fetched successfully",
+      data: doc
     });
   });
 });
